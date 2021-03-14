@@ -2,7 +2,7 @@
   <div class="hello">
     <header>
       <div class="logotype"><a href="#">Ac</a></div>
-      <div class="account">Account Name</div>
+      <div class="account">Accounts Name</div>
       <div class="nav">
         <button class="nav-account cta cta-gray">My account</button>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="dashboard">
     <header>
       <div class="logotype"><a href="#">Ac</a></div>
       <div class="account">Account Name</div>

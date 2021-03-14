@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="connect">
     <div class="container">
       <header>
         <div class="logotype"><a href="#">Ac</a></div>
