@@ -18,9 +18,7 @@
 
       <main>
         <h1 class="title">Start interacting with your twitch community.</h1>
-        <p class="text">
-          Overlay extension to display recent chatter's avatar on your stream.
-        </p>
+        <p class="text">Overlay extension to display recent chatter's avatar on your stream.</p>
         <div class="button">
           <a href="#" class="cta cta-yellow">Get started</a>
           <a href="#" class="cta cta-blank">Chat interactions example</a>
@@ -36,6 +34,7 @@ $backgroundColor: #0e0e0e;
 $primaryColor: #faff00;
 $secondaryColor: #ededed;
 $thirdColor: #bebebe;
+$fontspath: "~@/assets/fonts/";
 
 *,
 ::before,
@@ -49,43 +48,43 @@ $thirdColor: #bebebe;
 }
 
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealLight.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealLight300.ttf") format("truetype");
   font-weight: 300;
 }
 
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealBook.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealBook400.ttf") format("truetype");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealMedium.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealMedium500.ttf") format("truetype");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealBold.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealBold700.ttf") format("truetype");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealExtraBold.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealExtraBold800.ttf") format("truetype");
   font-weight: 800;
 }
 
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealBlack.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealBlack900.ttf") format("truetype");
   font-weight: 900;
 }
 
 .hello {
-  font-family: 'Cereal', Arial, Helvetica, sans-serif;
+  font-family: "Cereal", Arial, Helvetica, sans-serif;
   font-weight: 500;
   color: $secondaryColor;
 }
@@ -126,7 +125,7 @@ $thirdColor: #bebebe;
 header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'logotype nav';
+  grid-template-areas: "logotype nav";
 
   .logotype {
     grid-area: logotype;
