@@ -22,6 +22,7 @@ $backgroundColor: #0e0e0e;
 $primaryColor: #faff00;
 $secondaryColor: #ededed;
 $thirdColor: #bebebe;
+$fontspath: "~@/assets/fonts/";
 
 *,
 ::before,
@@ -34,44 +35,48 @@ $thirdColor: #bebebe;
   background-color: $backgroundColor;
 }
 
+button {
+  font-family: Cereal, Arial, Helvetica, sans-serif;
+}
+
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealLight.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealLight300.ttf") format("truetype");
   font-weight: 300;
 }
 
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealBook.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealBook400.ttf") format("truetype");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealMedium.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealMedium500.ttf") format("truetype");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealBold.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealBold700.ttf") format("truetype");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealExtraBold.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealExtraBold800.ttf") format("truetype");
   font-weight: 800;
 }
 
 @font-face {
-  font-family: 'Cereal';
-  src: url(../assets/fonts/AirbnbCerealBlack.ttf) format(truetype);
+  font-family: Cereal;
+  src: url($fontspath + "AirbnbCerealBlack900.ttf") format("truetype");
   font-weight: 900;
 }
 
 .hello {
-  font-family: 'Cereal', Arial, Helvetica, sans-serif;
+  font-family: Cereal, Arial, Helvetica, sans-serif;
   font-weight: 500;
   color: $secondaryColor;
 }
