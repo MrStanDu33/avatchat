@@ -1,9 +1,14 @@
 <template>
-  <div>widget</div>
+  <app-list :appCountPerRows="4" />
 </template>
 
 <script>
+import AppList from '@/components/widgets/phone/AppList';
+
 export default {
+  components: {
+    AppList,
+  },
   data() {
     return {
       chatSocket: null,
@@ -48,7 +53,7 @@ export default {
       );
     },
     onChatMessage({ data }) {
-      if (data === 'PING :tmi.twitch.tv') {
+      if (data.slice(0, -2) === 'PING :tmi.twitch.tv') {
         return this.chatSocket.send('PONG :tmi.twitch.tv');
       }
 
