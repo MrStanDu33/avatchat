@@ -68,7 +68,9 @@
     </div>
 
     <header>
-      <div class="logotype"><a href="#">Ac</a></div>
+      <div class="logotype">
+        <button class="button" id="menuButton"><i class="gg-menu"></i></button><a href="#">Ac</a>
+      </div>
       <div class="account">BastiUI</div>
       <div class="nav">
         <button
@@ -100,8 +102,8 @@
     </header>
 
     <div class="container">
-      <aside>
-        <div class="bloc">
+      <aside id="menuAside">
+        <div class="bloc bloc-top">
           <div class="bloc-header">
             <h2 class="bloc-header-title">Projects</h2>
             <button class="bloc-header-add" onclick="divVisibility('add');">
@@ -171,6 +173,25 @@
                   Delete
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="bloc bloc-bottom">
+          <div class="bloc-header">
+            <h2 class="bloc-header-title">My account</h2>
+          </div>
+          <div class="bloc-menu">
+            <div class="bloc-menu-list">
+              <div class="bloc-menu-list-text">Disconnect</div>
+            </div>
+            <div class="bloc-menu-danger bloc-menu-list">
+              <div class="bloc-menu-list-option">Danger zone</div>
+            </div>
+            <div class="bloc-menu-list">
+              <div class="bloc-menu-list-text">Revoke all widgets URLs</div>
+            </div>
+            <div class="bloc-menu-list">
+              <div class="bloc-menu-list-text">Delete your account</div>
             </div>
           </div>
         </div>
@@ -256,15 +277,17 @@
 </template>
 
 <style lang="scss">
-$backgroundColor: #0e0e0e;
+$color-citrus: #faff00;
+$color-black: #0e0e0e;
+$color-coal: #1d1d1d;
+$color-gray: #242424;
+$color-moon: #505050;
+$color-silver: #bebebe;
+$color-snow: #ededed;
+$color-warning: #d33e3e;
 $backgroundGray: #121212;
-$primaryColor: #faff00;
-$secondaryColor: #ededed;
-$thirdColor: #bebebe;
-$ctaGray: #1d1d1d;
-$ctaGrayHover: #242424;
-$red: #d33e3e;
-$fontspath: "~@/assets/fonts/";
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
 *,
 ::before,
@@ -281,62 +304,27 @@ $fontspath: "~@/assets/fonts/";
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $ctaGray;
+  background-color: $color-coal;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: $ctaGrayHover;
+  background-color: $color-gray;
 }
 
 body {
-  background-color: $backgroundColor;
+  background-color: $color-black;
+  overflow: hidden;
 }
 
 button {
-  font-family: Cereal, Arial, Helvetica, sans-serif;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealLight300.ttf") format("truetype");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBook400.ttf") format("truetype");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealMedium500.ttf") format("truetype");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBold700.ttf") format("truetype");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealExtraBold800.ttf") format("truetype");
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBlack900.ttf") format("truetype");
-  font-weight: 900;
+  font-family: "Archivo", Arial, Helvetica, sans-serif;
 }
 
 .hello {
-  font-family: Cereal, Arial, Helvetica, sans-serif;
+  font-family: "Archivo", Arial, Helvetica, sans-serif;
   font-weight: 500;
-  color: $secondaryColor;
+  color: $color-snow;
 }
 
 .add {
@@ -366,10 +354,10 @@ button {
       background-color: transparent;
       margin-bottom: 30px;
       padding: 16px 16px;
-      color: $secondaryColor;
+      color: $color-snow;
       font-size: 16px;
       border-radius: 4px;
-      border: 2px solid $thirdColor;
+      border: 2px solid $color-silver;
     }
 
     &-button {
@@ -409,10 +397,10 @@ button {
       background-color: transparent;
       margin-bottom: 30px;
       padding: 16px 16px;
-      color: $secondaryColor;
+      color: $color-snow;
       font-size: 16px;
       border-radius: 4px;
-      border: 2px solid $thirdColor;
+      border: 2px solid $color-silver;
     }
 
     &-button {
@@ -479,7 +467,7 @@ button {
       margin-bottom: 30px;
 
       &-yellow {
-        color: $primaryColor;
+        color: $color-citrus;
       }
     }
 
@@ -487,10 +475,10 @@ button {
       outline: none;
       background-color: transparent;
       padding: 10px 16px;
-      color: $secondaryColor;
+      color: $color-snow;
       font-size: 16px;
       border-radius: 4px;
-      border: 2px solid $thirdColor;
+      border: 2px solid $color-silver;
       min-width: 350px;
     }
 
@@ -505,7 +493,7 @@ button {
 
     &-subtitle {
       max-width: 545px;
-      color: $thirdColor;
+      color: $color-silver;
       font-size: 14px;
       font-weight: 300;
     }
@@ -529,8 +517,12 @@ header {
     font-weight: 700;
 
     a {
-      color: $primaryColor;
+      color: $color-citrus;
     }
+  }
+
+  .button {
+    display: none;
   }
 
   .account {
@@ -553,7 +545,7 @@ header {
       top: 75px;
       display: none;
       flex-direction: column;
-      background-color: $ctaGray;
+      background-color: $color-coal;
       padding-top: 8px;
       padding-bottom: 8px;
       border-radius: 4px;
@@ -562,7 +554,7 @@ header {
       &-option {
         padding: 8px 18px;
         font-size: 12px;
-        color: $red;
+        color: $color-warning;
         overflow: hidden;
 
         &::after {
@@ -573,7 +565,7 @@ header {
           width: calc(100% - 79px);
           margin-right: -100%;
           margin-left: 10px;
-          border-top: 1px solid $red;
+          border-top: 1px solid $color-warning;
         }
       }
 
@@ -584,16 +576,16 @@ header {
         width: 100%;
         border: 0;
         outline: 0;
-        color: $thirdColor;
+        color: $color-silver;
         background-color: inherit;
         padding: 8px 18px;
 
         &-red {
-          color: $red;
+          color: $color-warning;
         }
 
         &:hover {
-          background-color: $ctaGrayHover;
+          background-color: $color-gray;
         }
       }
     }
@@ -601,7 +593,7 @@ header {
 }
 
 aside {
-  background-color: $ctaGray;
+  background-color: $color-coal;
   width: max-content;
   min-width: 250px;
   height: calc(100vh - 100px);
@@ -610,12 +602,20 @@ aside {
     display: flex;
     flex-direction: column;
 
+    &-bottom {
+      display: none;
+    }
+
+    &-top {
+      height: calc(100vh - 355px);
+    }
+
     &-header {
       padding: 30px 24px;
       display: grid;
       grid-template-columns: 1fr 4fr;
       grid-template-areas: "text icon";
-      border-bottom: 1px solid $ctaGrayHover;
+      border-bottom: 1px solid $color-gray;
 
       &-title {
         grid-area: text;
@@ -632,12 +632,16 @@ aside {
         border: 0;
         outline: 0;
         background-color: inherit;
-        color: $thirdColor;
+        color: $color-silver;
         transition: all 0.3s ease-in-out;
 
         &:hover {
-          color: $primaryColor;
+          color: $color-citrus;
         }
+      }
+
+      &-back {
+        display: none;
       }
     }
 
@@ -645,7 +649,12 @@ aside {
       display: flex;
       flex-direction: column;
       margin-top: 22px;
-      color: $thirdColor;
+      color: $color-silver;
+
+      &-danger:hover {
+        background-color: $color-coal !important;
+        cursor: inherit;
+      }
 
       &-list {
         position: relative;
@@ -656,7 +665,7 @@ aside {
         cursor: pointer;
 
         &:hover {
-          background-color: $ctaGrayHover;
+          background-color: $color-gray;
         }
 
         &-text {
@@ -670,7 +679,7 @@ aside {
         }
 
         &:hover > .bloc-menu-list-text {
-          color: $secondaryColor;
+          color: $color-snow;
         }
 
         &-more {
@@ -682,19 +691,19 @@ aside {
           border: 0;
           outline: 0;
           background-color: inherit;
-          color: $secondaryColor;
+          color: $color-snow;
           width: 24px;
           padding: 4px;
 
           .gg-more-alt {
             margin-left: 50%;
             transform: translateX(-50%);
-            color: $thirdColor;
+            color: $color-silver;
             transition: all 0.3s ease-in-out;
           }
 
           &:hover > .gg-more-alt {
-            color: $primaryColor;
+            color: $color-citrus;
           }
 
           &-bloc {
@@ -705,7 +714,7 @@ aside {
             right: -145px;
             flex-direction: column;
             justify-content: flex-start;
-            background-color: $ctaGray;
+            background-color: $color-coal;
             padding-top: 8px;
             padding-bottom: 8px;
             border-radius: 4px;
@@ -719,18 +728,35 @@ aside {
               cursor: pointer;
               border: 0;
               outline: 0;
-              color: $thirdColor;
+              color: $color-silver;
               background-color: inherit;
               padding: 8px 18px;
 
               &-red {
-                color: $red;
+                color: $color-warning;
               }
 
               &:hover {
-                background-color: $ctaGrayHover;
+                background-color: $color-gray;
               }
             }
+          }
+        }
+
+        &-option {
+          font-size: 12px;
+          color: $color-warning;
+          overflow: hidden;
+
+          &::after {
+            content: "";
+            display: inline-block;
+            height: 0.5em;
+            vertical-align: bottom;
+            width: calc(100% - 79px);
+            margin-right: -100%;
+            margin-left: 10px;
+            border-top: 1px solid $color-warning;
           }
         }
       }
@@ -764,21 +790,19 @@ main {
       outline: none;
       background-color: inherit;
       cursor: pointer;
-      border: 3px solid $ctaGray;
+      border: 3px solid $color-coal;
       border-radius: 4px;
       padding: 2rem 6rem;
-      min-width: 350px;
-      min-height: 350px;
-      height: max-content;
-      width: max-content;
-      color: $ctaGray;
+      height: 280px;
+      width: 280px;
+      color: $color-coal;
       margin-right: 24px;
       margin-bottom: 24px;
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        border-color: $thirdColor;
-        color: $thirdColor;
+        border-color: $color-silver;
+        color: $color-silver;
         transform: scale(1.1);
       }
 
@@ -805,7 +829,7 @@ main {
       }
 
       &-title {
-        color: $thirdColor;
+        color: $color-silver;
       }
 
       &-bloc {
@@ -816,7 +840,7 @@ main {
         right: 8px;
         flex-direction: column;
         justify-content: flex-start;
-        background-color: $ctaGray;
+        background-color: $color-coal;
         padding-top: 8px;
         padding-bottom: 8px;
         border-radius: 4px;
@@ -829,17 +853,17 @@ main {
           cursor: pointer;
           border: 0;
           outline: 0;
-          color: $thirdColor;
+          color: $color-silver;
           background-color: inherit;
           padding: 8px 18px;
           font-size: 12px;
 
           &-red {
-            color: $red;
+            color: $color-warning;
           }
 
           &:hover {
-            background-color: $ctaGrayHover;
+            background-color: $color-gray;
           }
         }
       }
@@ -858,8 +882,8 @@ main {
 
   &-yellow {
     padding: 12px 44px;
-    background-color: $primaryColor;
-    color: $backgroundColor;
+    background-color: $color-citrus;
+    color: $color-black;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -869,36 +893,88 @@ main {
 
   &-red {
     padding: 12px 44px;
-    background-color: $red;
-    color: $thirdColor;
+    background-color: $color-warning;
+    color: $color-silver;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      color: $secondaryColor;
+      color: $color-snow;
       transform: translateY(-15%);
     }
   }
 
   &-gray {
     padding: 8px 18px;
-    background-color: $ctaGray;
-    color: $thirdColor;
+    background-color: $color-coal;
+    color: $color-silver;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      color: $secondaryColor;
-      background-color: $ctaGrayHover;
+      color: $color-snow;
+      background-color: $color-gray;
     }
   }
 
   &-blank {
     padding: 12px 44px;
-    color: $thirdColor;
+    color: $color-silver;
     transition: all 0.3s ease-in-out;
 
     &:hover {
       transform: translateY(-15%);
       background-color: #121212;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .apear {
+    left: 0%;
+  }
+
+  header {
+    .button {
+      cursor: pointer;
+      transform: translateX(-100%);
+      background-color: transparent;
+      border: none;
+      outline: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-citrus;
+      height: 40px;
+      width: 40px;
+    }
+
+    a {
+      display: none;
+    }
+
+    .nav {
+      display: none;
+    }
+  }
+
+  main {
+    padding: 24px 16px;
+  }
+
+  aside {
+    position: absolute;
+    left: -100%;
+    width: 60%;
+    z-index: 4;
+    transition: left 0.3s ease-in-out;
+
+    .bloc {
+      &-header {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      &-bottom {
+        display: flex;
+      }
     }
   }
 }

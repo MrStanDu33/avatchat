@@ -1,10 +1,11 @@
 <template>
-  <div class="index">
+  <div class="hello">
     <div class="container">
       <header>
         <div class="logotype"><a href="#">Avatchat</a></div>
         <div class="nav">
-          <ul class="nav-menu">
+          <button id="menuBtn" class="nav-button"><span class="gg-more-alt"></span></button>
+          <ul id="menu" class="nav-menu">
             <li class="nav-menu-list">
               <a href="" id="connectURL">App</a>
             </li>
@@ -30,11 +31,17 @@
 </template>
 
 <style lang="scss">
-$backgroundColor: #0e0e0e;
-$primaryColor: #faff00;
-$secondaryColor: #ededed;
-$thirdColor: #bebebe;
-$fontspath: "~@/assets/fonts/";
+$color-citrus: #faff00;
+$color-black: #0e0e0e;
+$color-coal: #1d1d1d;
+$color-gray: #242424;
+$color-moon: #505050;
+$color-silver: #bebebe;
+$color-snow: #ededed;
+$color-warning: #d33e3e;
+$backgroundGray: #121212;
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
 *,
 ::before,
@@ -44,49 +51,13 @@ $fontspath: "~@/assets/fonts/";
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-  background-color: $backgroundColor;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealLight300.ttf") format("truetype");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBook400.ttf") format("truetype");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealMedium500.ttf") format("truetype");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBold700.ttf") format("truetype");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealExtraBold800.ttf") format("truetype");
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBlack900.ttf") format("truetype");
-  font-weight: 900;
+  background-color: $color-black;
 }
 
 .hello {
-  font-family: "Cereal", Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  color: $secondaryColor;
+  font-family: "Archivo", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: $color-snow;
 }
 
 .container {
@@ -102,8 +73,8 @@ $fontspath: "~@/assets/fonts/";
   font-size: 14px;
 
   &-yellow {
-    background-color: $primaryColor;
-    color: $backgroundColor;
+    background-color: $color-citrus;
+    color: $color-black;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -112,7 +83,7 @@ $fontspath: "~@/assets/fonts/";
   }
 
   &-blank {
-    color: $thirdColor;
+    color: $color-silver;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -133,7 +104,7 @@ header {
     font-weight: 700;
 
     a {
-      color: $primaryColor;
+      color: $color-citrus;
     }
   }
 
@@ -143,11 +114,15 @@ header {
     justify-content: flex-end;
     align-items: center;
 
+    &-button {
+      display: none;
+    }
+
     &-menu {
       display: flex;
 
       &-list {
-        color: $secondaryColor;
+        color: $color-snow;
 
         &:not(:first-child) {
           margin-left: 28px;
@@ -157,7 +132,7 @@ header {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: $secondaryColor;
+          color: $color-snow;
           transition: color 0.3s ease-in-out;
 
           .gg-arrow-top-right {
@@ -167,7 +142,7 @@ header {
           }
 
           &:hover {
-            color: $primaryColor;
+            color: $color-citrus;
           }
         }
       }
@@ -191,7 +166,7 @@ main {
 
   .text {
     font-size: 14px;
-    color: $thirdColor;
+    color: $color-silver;
     margin-bottom: 30px;
   }
 
@@ -211,5 +186,86 @@ aside {
   background-color: #1d1d1d;
   top: 0;
   right: 0;
+}
+
+@media screen and (max-width: 950px) {
+  .container {
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  .apear {
+    display: flex !important;
+  }
+
+  header {
+    .nav {
+      &-button {
+        cursor: pointer;
+        transform: translateY(-5px);
+        background-color: transparent;
+        border: none;
+        outline: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $color-silver;
+        height: 40px;
+        width: 40px;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+          color: $color-citrus;
+        }
+      }
+
+      &-menu {
+        display: none;
+        position: absolute;
+        align-items: flex-end;
+        flex-direction: column;
+        right: 34px;
+        top: 80px;
+
+        &-list {
+          margin-bottom: 16px;
+
+          &:not(:first-child) {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    padding-right: 24px;
+
+    .title {
+      font-size: 30px;
+      line-height: 34px;
+    }
+
+    .button {
+      flex-direction: column;
+
+      a:not(:first-child) {
+        margin-top: 24px;
+        margin-left: 0;
+      }
+
+      .cta {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+    }
+  }
+
+  aside {
+    position: relative;
+    width: 100%;
+    margin-top: 30vh;
+  }
 }
 </style>

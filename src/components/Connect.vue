@@ -1,5 +1,5 @@
 <template>
-  <div class="connect">
+  <div class="hello">
     <div class="container">
       <header>
         <div class="logotype"><a href="#">Ac</a></div>
@@ -18,11 +18,17 @@
 </template>
 
 <style lang="scss">
-$backgroundColor: #0e0e0e;
-$primaryColor: #faff00;
-$secondaryColor: #ededed;
-$thirdColor: #bebebe;
-$fontspath: "~@/assets/fonts/";
+$color-citrus: #faff00;
+$color-black: #0e0e0e;
+$color-coal: #1d1d1d;
+$color-gray: #242424;
+$color-moon: #505050;
+$color-silver: #bebebe;
+$color-snow: #ededed;
+$color-warning: #d33e3e;
+$backgroundGray: #121212;
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
 *,
 ::before,
@@ -32,53 +38,17 @@ $fontspath: "~@/assets/fonts/";
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-  background-color: $backgroundColor;
+  background-color: $color-black;
 }
 
 button {
-  font-family: Cereal, Arial, Helvetica, sans-serif;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealLight300.ttf") format("truetype");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBook400.ttf") format("truetype");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealMedium500.ttf") format("truetype");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBold700.ttf") format("truetype");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealExtraBold800.ttf") format("truetype");
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBlack900.ttf") format("truetype");
-  font-weight: 900;
+  font-family: "Archivo", Arial, Helvetica, sans-serif;
 }
 
 .hello {
-  font-family: Cereal, Arial, Helvetica, sans-serif;
+  font-family: "Archivo", Arial, Helvetica, sans-serif;
   font-weight: 500;
-  color: $secondaryColor;
+  color: $color-snow;
 }
 
 .container {
@@ -93,8 +63,8 @@ button {
 
   &-yellow {
     padding: 12px 44px;
-    background-color: $primaryColor;
-    color: $backgroundColor;
+    background-color: $color-citrus;
+    color: $color-black;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -104,7 +74,7 @@ button {
 
   &-blank {
     padding: 12px 44px;
-    color: $thirdColor;
+    color: $color-silver;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -120,7 +90,7 @@ header {
     font-weight: 700;
 
     a {
-      color: $primaryColor;
+      color: $color-citrus;
     }
   }
 }
@@ -146,6 +116,26 @@ main {
 
       a:not(:first-child) {
         margin-left: 28px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  main {
+    .bloc {
+      &-title {
+        font-size: 36px;
+      }
+
+      .button {
+        flex-direction: column;
+        justify-content: center;
+
+        a:not(:first-child) {
+          margin-left: 0;
+          margin-top: 24px;
+        }
       }
     }
   }
