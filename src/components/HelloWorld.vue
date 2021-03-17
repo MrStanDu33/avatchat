@@ -294,16 +294,17 @@
 </template>
 
 <style lang="scss">
-$backgroundColor: #0e0e0e;
+$color-citrus: #faff00;
+$color-black: #0e0e0e;
+$color-coal: #1d1d1d;
+$color-gray: #242424;
+$color-moon: #505050;
+$color-silver: #bebebe;
+$color-snow: #ededed;
+$color-warning: #d33e3e;
 $backgroundGray: #121212;
-$primaryColor: #faff00;
-$secondaryColor: #ededed;
-$thirdColor: #bebebe;
-$gray: #505050;
-$ctaGray: #1d1d1d;
-$ctaGrayHover: #242424;
-$red: #d33e3e;
-$fontspath: "~@/assets/fonts/";
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
 *,
 ::before,
@@ -320,16 +321,16 @@ $fontspath: "~@/assets/fonts/";
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $ctaGray;
+  background-color: $color-coal;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: $ctaGrayHover;
+  background-color: $color-gray;
 }
 
 button {
-  font-family: Cereal, Arial, Helvetica, sans-serif;
+  font-family: "Archivo", Arial, Helvetica, sans-serif;
 }
 
 input[type="number"] {
@@ -354,8 +355,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .number-input button {
   outline: none;
-  background-color: $ctaGrayHover;
-  color: $gray;
+  background-color: $color-gray;
+  color: $color-moon;
   border: none;
   width: 24px;
   height: 24px;
@@ -368,7 +369,7 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: $thirdColor;
+    color: $color-silver;
     filter: brightness(150%);
   }
 }
@@ -393,13 +394,13 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: transparent;
   border: none;
   outline: none;
-  color: $gray;
+  color: $color-moon;
   font-size: 14px;
   text-align: center;
   transition: color 0.3s ease-in-out;
 
   &:hover {
-    color: $thirdColor;
+    color: $color-silver;
   }
 }
 
@@ -415,7 +416,7 @@ input[type="checkbox"] {
 input[type="checkbox"] + label::after {
   content: "\2713";
   border: none;
-  background-color: $ctaGrayHover;
+  background-color: $color-gray;
   border-radius: 3px;
   display: inline-block;
   width: 24px;
@@ -432,53 +433,17 @@ input[type="checkbox"]:hover + label::after {
 }
 
 input[type="checkbox"]:checked + label::after {
-  color: $thirdColor;
+  color: $color-silver;
 }
 
 body {
-  background-color: $backgroundColor;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealLight300.ttf") format("truetype");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBook400.ttf") format("truetype");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealMedium500.ttf") format("truetype");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBold700.ttf") format("truetype");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealExtraBold800.ttf") format("truetype");
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBlack900.ttf") format("truetype");
-  font-weight: 900;
+  background-color: $color-black;
 }
 
 .hello {
-  font-family: "Cereal", Arial, Helvetica, sans-serif;
+  font-family: "Archivo", Arial, Helvetica, sans-serif;
   font-weight: 500;
-  color: $secondaryColor;
+  color: $color-snow;
 }
 
 .rename {
@@ -508,10 +473,10 @@ body {
       background-color: transparent;
       margin-bottom: 30px;
       padding: 16px 16px;
-      color: $secondaryColor;
+      color: $color-snow;
       font-size: 16px;
       border-radius: 4px;
-      border: 2px solid $thirdColor;
+      border: 2px solid $color-silver;
     }
 
     &-button {
@@ -578,7 +543,7 @@ body {
       margin-bottom: 30px;
 
       &-yellow {
-        color: $primaryColor;
+        color: $color-citrus;
       }
     }
 
@@ -586,10 +551,10 @@ body {
       outline: none;
       background-color: transparent;
       padding: 10px 16px;
-      color: $secondaryColor;
+      color: $color-snow;
       font-size: 16px;
       border-radius: 4px;
-      border: 2px solid $thirdColor;
+      border: 2px solid $color-silver;
       min-width: 350px;
     }
 
@@ -604,7 +569,7 @@ body {
 
     &-subtitle {
       max-width: 545px;
-      color: $thirdColor;
+      color: $color-silver;
       font-size: 14px;
       font-weight: 300;
     }
@@ -628,7 +593,7 @@ header {
     font-weight: 700;
 
     a {
-      color: $primaryColor;
+      color: $color-citrus;
     }
   }
 
@@ -639,7 +604,7 @@ header {
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    color: $gray;
+    color: $color-moon;
 
     &-project {
       position: relative;
@@ -651,11 +616,11 @@ header {
       border: none;
       background-color: transparent;
       cursor: pointer;
-      color: $thirdColor;
+      color: $color-silver;
       transition: color 0.3s ease-in-out;
 
       &:hover {
-        color: $secondaryColor;
+        color: $color-snow;
       }
 
       .gg-chevron-down {
@@ -679,7 +644,7 @@ header {
       position: absolute;
       top: 40px;
       padding: 8px 0;
-      background-color: $ctaGray;
+      background-color: $color-coal;
       border-radius: 4px;
 
       &-input {
@@ -691,18 +656,18 @@ header {
         background-color: transparent;
         border: none;
         outline: none;
-        color: $thirdColor;
+        color: $color-silver;
 
         &:hover {
-          background-color: $ctaGrayHover;
-          color: $secondaryColor;
+          background-color: $color-gray;
+          color: $color-snow;
         }
 
         &-red {
-          color: $red;
+          color: $color-warning;
 
           &:hover {
-            color: $red;
+            color: $color-warning;
           }
         }
       }
@@ -721,7 +686,7 @@ header {
       top: 75px;
       display: none;
       flex-direction: column;
-      background-color: $ctaGray;
+      background-color: $color-coal;
       padding-top: 8px;
       padding-bottom: 8px;
       border-radius: 4px;
@@ -730,7 +695,7 @@ header {
       &-option {
         padding: 8px 18px;
         font-size: 12px;
-        color: $red;
+        color: $color-warning;
         overflow: hidden;
 
         &::after {
@@ -741,7 +706,7 @@ header {
           width: calc(100% - 79px);
           margin-right: -100%;
           margin-left: 10px;
-          border-top: 1px solid $red;
+          border-top: 1px solid $color-warning;
         }
       }
 
@@ -752,16 +717,16 @@ header {
         width: 100%;
         border: 0;
         outline: 0;
-        color: $thirdColor;
+        color: $color-silver;
         background-color: inherit;
         padding: 8px 18px;
 
         &-red {
-          color: $red;
+          color: $color-warning;
         }
 
         &:hover {
-          background-color: $ctaGrayHover;
+          background-color: $color-gray;
         }
       }
     }
@@ -769,7 +734,7 @@ header {
 }
 
 aside {
-  background-color: $ctaGray;
+  background-color: $color-coal;
   width: max-content;
   min-width: 300px;
   height: calc(100vh - 102px);
@@ -784,7 +749,7 @@ aside {
       display: grid;
       grid-template-columns: 4fr 1fr;
       grid-template-areas: "text icon";
-      border-bottom: 1px solid $ctaGrayHover;
+      border-bottom: 1px solid $color-gray;
 
       &-title {
         grid-area: text;
@@ -807,11 +772,11 @@ aside {
         border: 0;
         outline: 0;
         background-color: inherit;
-        color: $thirdColor;
+        color: $color-silver;
         transition: all 0.3s ease-in-out;
 
         &:hover {
-          color: $primaryColor;
+          color: $color-citrus;
         }
       }
     }
@@ -820,17 +785,17 @@ aside {
       display: flex;
       flex-direction: column;
       margin-top: 22px;
-      color: $thirdColor;
+      color: $color-silver;
 
       &-list {
         position: relative;
         padding: 10px 24px;
-        color: $secondaryColor;
+        color: $color-snow;
         font-size: 14px;
 
         &-options {
           padding: 10px 18px;
-          color: $thirdColor;
+          color: $color-silver;
 
           &:last-child {
             margin-bottom: 18px;
@@ -845,14 +810,14 @@ aside {
               position: absolute;
               right: calc(0px + 54px);
               background-color: transparent;
-              color: $gray;
+              color: $color-moon;
               border: none;
               outline: none;
               padding: 5px 4px;
               transition: color 0.3s ease-in-out;
 
               &:hover {
-                color: $thirdColor;
+                color: $color-silver;
               }
             }
 
@@ -922,8 +887,8 @@ main {
 
   &-yellow {
     padding: 12px 44px;
-    background-color: $primaryColor;
-    color: $backgroundColor;
+    background-color: $color-citrus;
+    color: $color-black;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -933,31 +898,31 @@ main {
 
   &-red {
     padding: 12px 44px;
-    background-color: $red;
-    color: $thirdColor;
+    background-color: $color-warning;
+    color: $color-silver;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      color: $secondaryColor;
+      color: $color-snow;
       transform: translateY(-15%);
     }
   }
 
   &-gray {
     padding: 8px 18px;
-    background-color: $ctaGray;
-    color: $thirdColor;
+    background-color: $color-coal;
+    color: $color-silver;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      color: $secondaryColor;
-      background-color: $ctaGrayHover;
+      color: $color-snow;
+      background-color: $color-gray;
     }
   }
 
   &-blank {
     padding: 12px 44px;
-    color: $thirdColor;
+    color: $color-silver;
     transition: all 0.3s ease-in-out;
 
     &:hover {
