@@ -1,5 +1,22 @@
 <template>
   <div class="hello">
+    <div class="add" id="add">
+      <div class="add-bloc">
+        <h1 class="add-bloc-title">Add a new overlay</h1>
+        <input
+          class="add-bloc-input"
+          type="text"
+          id="name"
+          name="name"
+          value="Project name"
+          required
+        />
+        <div class="add-bloc-button">
+          <a href="#" class="cta cta-yellow">Create</a>
+          <a href="#" class="cta cta-blank" onclick="divVisibility('add');">Cancel</a>
+        </div>
+      </div>
+    </div>
     <div class="rename" id="rename">
       <div class="rename-bloc">
         <h1 class="rename-bloc-title">Change the name of this project</h1>
@@ -51,24 +68,10 @@
     </div>
 
     <header>
-      <div class="logotype"><a href="#">Ac</a></div>
-      <div class="account">
-        BastiUI /<button class="account-project" onclick="divVisibility('accountProject');">
-          Overlay pictures chat<span class="gg-chevron-down"></span>
-        </button>
-        <div class="account-bloc" id="accountProject">
-          <button class="account-bloc-input" onclick="divVisibility('link');">
-            Copy private link
-          </button>
-          <button class="account-bloc-input" onclick="divVisibility('rename');">Rename</button>
-          <button
-            class="account-bloc-input account-bloc-input-red"
-            onclick="divVisibility('delete');"
-          >
-            Delete
-          </button>
-        </div>
+      <div class="logotype">
+        <button class="button" id="menuButton"><i class="gg-menu"></i></button><a href="#">Ac</a>
       </div>
+      <div class="account">BastiUI</div>
       <div class="nav">
         <button
           class="nav-account cta cta-gray"
@@ -99,211 +102,192 @@
     </header>
 
     <div class="container">
-      <aside>
-        <div class="bloc">
+      <aside id="menuAside">
+        <div class="bloc bloc-top">
           <div class="bloc-header">
-            <h2 class="bloc-header-title">Overlay pictures chat</h2>
+            <h2 class="bloc-header-title">Projects</h2>
             <button class="bloc-header-add" onclick="divVisibility('add');">
-              <span class="gg-chevron-left"></span>
+              <span class="gg-math-plus"></span>
             </button>
           </div>
           <div class="bloc-menu">
-            <ul class="bloc-menu-list">
-              <li>
-                Colors
-                <ul class="bloc-menu-list-options">
-                  <li class="bloc-menu-list-options-input">
-                    <label for="backgroundColor">Background</label>
-                    <input
-                      class="bloc-menu-list-options-input-value"
-                      type="text"
-                      size="4"
-                      id="backgroundColor"
-                      name="backgroundColor"
-                      value="#FAFF00"
-                      onchange="changeBackgroundColor();"
-                    />
-                    <div class="bloc-menu-list-options-input-color" id="backgroundColorValue"></div>
-                  </li>
-                  <li class="bloc-menu-list-options-input">
-                    <label for="blockColor">Avatar block</label>
-                    <input
-                      class="bloc-menu-list-options-input-value"
-                      type="text"
-                      size="4"
-                      id="blockColor"
-                      name="blockColor"
-                      value="#FAFF00"
-                      onchange="changeBlockColor();"
-                    />
-                    <div class="bloc-menu-list-options-input-color" id="blockColorValue"></div>
-                  </li>
-                  <li class="bloc-menu-list-options-input">
-                    <label for="textColor">Text</label>
-                    <input
-                      class="bloc-menu-list-options-input-value"
-                      type="text"
-                      size="4"
-                      id="textColor"
-                      name="textColor"
-                      value="#FAFF00"
-                      onchange="changeTextColor();"
-                    />
-                    <div class="bloc-menu-list-options-input-color" id="textColorValue"></div>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Grid
-                <ul class="bloc-menu-list-options">
-                  <li class="bloc-menu-list-options-input">
-                    <label for="column">Column</label>
-                    <div class="bloc-menu-list-options-input-button number-input">
-                      <button
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                        class="minus"
-                      ></button>
-                      <input
-                        class="quantity"
-                        min="0"
-                        name="column"
-                        id="column"
-                        value="4"
-                        type="number"
-                      />
-                      <button
-                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                        class="plus"
-                      ></button>
-                    </div>
-                  </li>
-                  <li class="bloc-menu-list-options-input">
-                    <label for="gap">Gap</label>
-                    <div class="bloc-menu-list-options-input-button number-input">
-                      <button
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                        class="minus"
-                      ></button>
-                      <input
-                        class="quantity"
-                        min="0"
-                        name="gap"
-                        id="gap"
-                        value="20"
-                        type="number"
-                      />
-                      <button
-                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                        class="plus"
-                      ></button>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Others
-                <ul class="bloc-menu-list-options">
-                  <li class="bloc-menu-list-options-input">
-                    <label for="delay">Delay</label>
-                    <div class="bloc-menu-list-options-input-button number-input">
-                      <button
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                        class="minus"
-                      ></button>
-                      <input
-                        class="quantity"
-                        min="0"
-                        name="delay"
-                        id="delay"
-                        value="4"
-                        type="number"
-                        step="0.5"
-                      />
-                      <button
-                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                        class="plus"
-                      ></button>
-                    </div>
-                  </li>
-                  <li class="bloc-menu-list-options-input">
-                    <label for="timeout">Timeout</label>
-                    <div class="bloc-menu-list-options-input-button number-input">
-                      <button
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                        class="minus"
-                      ></button>
-                      <input
-                        class="quantity"
-                        min="0"
-                        name="timeout"
-                        id="timeout"
-                        value="10"
-                        type="number"
-                      />
-                      <button
-                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                        class="plus"
-                      ></button>
-                    </div>
-                  </li>
-                  <li class="bloc-menu-list-options-input">
-                    <input type="checkbox" id="displayName" name="displayName" checked />
-                    <label for="displayName" class="bloc-menu-list-options-input-checkbox"
-                      >Display name</label
-                    >
-                  </li>
-                  <li class="bloc-menu-list-options-input">
-                    <label for="borderRadius">Border radius</label>
-                    <div class="bloc-menu-list-options-input-button number-input">
-                      <button
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                        class="minus"
-                      ></button>
-                      <input
-                        class="quantity"
-                        min="0"
-                        name="borderRadius"
-                        id="borderRadius"
-                        value="4"
-                        type="number"
-                      />
-                      <button
-                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                        class="plus"
-                      ></button>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <div class="bloc-menu-list">
+              <div class="bloc-menu-list-text">Overlay pictures chat</div>
+              <button class="bloc-menu-list-more" onclick="divVisibility('overlayOptions1');">
+                <span class="gg-more-alt"></span>
+              </button>
+              <div class="bloc-menu-list-more-bloc" id="overlayOptions1">
+                <button class="bloc-menu-list-more-bloc-input">Edit</button>
+                <button class="bloc-menu-list-more-bloc-input" onclick="divVisibility('link')">
+                  Copy Private link
+                </button>
+                <button class="bloc-menu-list-more-bloc-input" onclick="divVisibility('rename');">
+                  Rename
+                </button>
+                <button
+                  class="bloc-menu-list-more-bloc-input bloc-menu-list-more-bloc-input-red"
+                  onclick="divVisibility('delete');"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+            <div class="bloc-menu-list">
+              <div class="bloc-menu-list-text">Chatbox</div>
+              <button class="bloc-menu-list-more" onclick="divVisibility('overlayOptions2');">
+                <span class="gg-more-alt"></span>
+              </button>
+              <div class="bloc-menu-list-more-bloc" id="overlayOptions2">
+                <button class="bloc-menu-list-more-bloc-input">Edit</button>
+                <button class="bloc-menu-list-more-bloc-input" onclick="divVisibility('link')">
+                  Copy Private link
+                </button>
+                <button class="bloc-menu-list-more-bloc-input" onclick="divVisibility('rename');">
+                  Rename
+                </button>
+                <button
+                  class="bloc-menu-list-more-bloc-input bloc-menu-list-more-bloc-input-red"
+                  onclick="divVisibility('delete');"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+            <div class="bloc-menu-list">
+              <div class="bloc-menu-list-text">Test</div>
+              <button class="bloc-menu-list-more" onclick="divVisibility('overlayOptions3');">
+                <span class="gg-more-alt"></span>
+              </button>
+              <div class="bloc-menu-list-more-bloc" id="overlayOptions3">
+                <button class="bloc-menu-list-more-bloc-input">Edit</button>
+                <button class="bloc-menu-list-more-bloc-input" onclick="divVisibility('link')">
+                  Copy Private link
+                </button>
+                <button class="bloc-menu-list-more-bloc-input" onclick="divVisibility('rename');">
+                  Rename
+                </button>
+                <button
+                  class="bloc-menu-list-more-bloc-input bloc-menu-list-more-bloc-input-red"
+                  onclick="divVisibility('delete');"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="bloc-footer">
-            <button class="bloc-footer-cta cta cta-yellow" onclick="divVisibility('link');">
-              Launch
-            </button>
+        </div>
+        <div class="bloc bloc-bottom">
+          <div class="bloc-header">
+            <h2 class="bloc-header-title">My account</h2>
+          </div>
+          <div class="bloc-menu">
+            <div class="bloc-menu-list">
+              <div class="bloc-menu-list-text">Disconnect</div>
+            </div>
+            <div class="bloc-menu-danger bloc-menu-list">
+              <div class="bloc-menu-list-option">Danger zone</div>
+            </div>
+            <div class="bloc-menu-list">
+              <div class="bloc-menu-list-text">Revoke all widgets URLs</div>
+            </div>
+            <div class="bloc-menu-list">
+              <div class="bloc-menu-list-text">Delete your account</div>
+            </div>
           </div>
         </div>
       </aside>
 
       <main>
-        <div class="title">Preview</div>
-        <div class="bloc"></div>
+        <div class="title">My projects</div>
+        <div class="bloc">
+          <button class="bloc-card">
+            <div class="bloc-card-more" onclick="divVisibility('overlayOptions4');">
+              <span class="gg-more-alt"></span>
+            </div>
+            <div class="bloc-card-preview">O</div>
+            <div class="bloc-card-title">Overlay pictures chat</div>
+            <div class="bloc-card-bloc" id="overlayOptions4">
+              <button class="bloc-card-bloc-input">Edit</button>
+              <button class="bloc-card-bloc-input" onclick="divVisibility('link')">
+                Copy Private link
+              </button>
+              <button class="bloc-card-bloc-input" onclick="divVisibility('rename');">
+                Rename
+              </button>
+              <button
+                class="bloc-card-bloc-input bloc-card-bloc-input-red"
+                onclick="divVisibility('delete');"
+              >
+                Delete
+              </button>
+            </div>
+          </button>
+          <button class="bloc-card">
+            <div class="bloc-card-more" onclick="divVisibility('overlayOptions5');">
+              <span class="gg-more-alt"></span>
+            </div>
+            <div class="bloc-card-preview">C</div>
+            <div class="bloc-card-title">Chatbox</div>
+            <div class="bloc-card-bloc" id="overlayOptions5">
+              <button class="bloc-card-bloc-input">Edit</button>
+              <button class="bloc-card-bloc-input" onclick="divVisibility('link')">
+                Copy Private link
+              </button>
+              <button class="bloc-card-bloc-input" onclick="divVisibility('rename');">
+                Rename
+              </button>
+              <button
+                class="bloc-card-bloc-input bloc-card-bloc-input-red"
+                onclick="divVisibility('delete');"
+              >
+                Delete
+              </button>
+            </div>
+          </button>
+          <button class="bloc-card">
+            <div class="bloc-card-more" onclick="divVisibility('overlayOptions6');">
+              <span class="gg-more-alt"></span>
+            </div>
+            <div class="bloc-card-preview">T</div>
+            <div class="bloc-card-title">Test</div>
+            <div class="bloc-card-bloc" id="overlayOptions6">
+              <button class="bloc-card-bloc-input">Edit</button>
+              <button class="bloc-card-bloc-input" onclick="divVisibility('link')">
+                Copy Private link
+              </button>
+              <button class="bloc-card-bloc-input" onclick="divVisibility('rename');">
+                Rename
+              </button>
+              <button
+                class="bloc-card-bloc-input bloc-card-bloc-input-red"
+                onclick="divVisibility('delete');"
+              >
+                Delete
+              </button>
+            </div>
+          </button>
+          <button class="bloc-card" onclick="divVisibility('add');">
+            <div class="bloc-card-preview">+</div>
+            <div class="bloc-card-title">Create new overlay</div>
+          </button>
+        </div>
       </main>
     </div>
   </div>
 </template>
 
 <style lang="scss">
-$backgroundColor: #0e0e0e;
+$color-citrus: #faff00;
+$color-black: #0e0e0e;
+$color-coal: #1d1d1d;
+$color-gray: #242424;
+$color-moon: #505050;
+$color-silver: #bebebe;
+$color-snow: #ededed;
+$color-warning: #d33e3e;
 $backgroundGray: #121212;
-$primaryColor: #faff00;
-$secondaryColor: #ededed;
-$thirdColor: #bebebe;
-$gray: #505050;
-$ctaGray: #1d1d1d;
-$ctaGrayHover: #242424;
-$red: #d33e3e;
-$fontspath: "~@/assets/fonts/";
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
 *,
 ::before,
@@ -320,165 +304,70 @@ $fontspath: "~@/assets/fonts/";
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $ctaGray;
+  background-color: $color-coal;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: $ctaGrayHover;
-}
-
-button {
-  font-family: Cereal, Arial, Helvetica, sans-serif;
-}
-
-input[type="number"] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-}
-
-.number-input {
-  display: inline-flex;
-}
-
-.number-input,
-.number-input * {
-  box-sizing: border-box;
-}
-
-.number-input button {
-  outline: none;
-  background-color: $ctaGrayHover;
-  color: $gray;
-  border: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 3px;
-  font-weight: 300;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 0;
-  position: relative;
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    color: $thirdColor;
-    filter: brightness(150%);
-  }
-}
-
-.number-input button::after {
-  display: inline-block;
-  position: absolute;
-  transform: translate(-50%, -50%) rotate(180deg);
-}
-
-.number-input button.minus::after {
-  content: "-";
-  margin-top: 2px;
-}
-
-.number-input button.plus::after {
-  content: "+";
-}
-
-.number-input input[type="number"] {
-  max-width: 50px;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: $gray;
-  font-size: 14px;
-  text-align: center;
-  transition: color 0.3s ease-in-out;
-
-  &:hover {
-    color: $thirdColor;
-  }
-}
-
-input[type="checkbox"] + label {
-  display: block;
-  cursor: pointer;
-}
-
-input[type="checkbox"] {
-  display: none;
-}
-
-input[type="checkbox"] + label::after {
-  content: "\2713";
-  border: none;
-  background-color: $ctaGrayHover;
-  border-radius: 3px;
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  padding-left: 7px;
-  padding-top: 2px;
-  transform: translateY(-4px);
-  color: transparent;
-  transition: filter 0.3s ease-in-out;
-}
-
-input[type="checkbox"]:hover + label::after {
-  filter: brightness(150%);
-}
-
-input[type="checkbox"]:checked + label::after {
-  color: $thirdColor;
+  background-color: $color-gray;
 }
 
 body {
-  background-color: $backgroundColor;
+  background-color: $color-black;
+  overflow: hidden;
 }
 
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealLight300.ttf") format("truetype");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBook400.ttf") format("truetype");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealMedium500.ttf") format("truetype");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBold700.ttf") format("truetype");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealExtraBold800.ttf") format("truetype");
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: Cereal;
-  src: url($fontspath + "AirbnbCerealBlack900.ttf") format("truetype");
-  font-weight: 900;
+button {
+  font-family: "Archivo", Arial, Helvetica, sans-serif;
 }
 
 .hello {
-  font-family: "Cereal", Arial, Helvetica, sans-serif;
+  font-family: "Archivo", Arial, Helvetica, sans-serif;
   font-weight: 500;
-  color: $secondaryColor;
+  color: $color-snow;
+}
+
+.add {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  display: none;
+  justify-content: center;
+
+  &-bloc {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25vh;
+
+    &-title {
+      font-size: 64px;
+      font-weight: 700;
+      max-width: 636px;
+      margin-bottom: 30px;
+    }
+
+    &-input {
+      outline: none;
+      background-color: transparent;
+      margin-bottom: 30px;
+      padding: 16px 16px;
+      color: $color-snow;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 2px solid $color-silver;
+    }
+
+    &-button {
+      display: flex;
+
+      :not(:first-child) {
+        margin-left: 28px;
+      }
+    }
+  }
 }
 
 .rename {
@@ -508,10 +397,10 @@ body {
       background-color: transparent;
       margin-bottom: 30px;
       padding: 16px 16px;
-      color: $secondaryColor;
+      color: $color-snow;
       font-size: 16px;
       border-radius: 4px;
-      border: 2px solid $thirdColor;
+      border: 2px solid $color-silver;
     }
 
     &-button {
@@ -578,7 +467,7 @@ body {
       margin-bottom: 30px;
 
       &-yellow {
-        color: $primaryColor;
+        color: $color-citrus;
       }
     }
 
@@ -586,10 +475,10 @@ body {
       outline: none;
       background-color: transparent;
       padding: 10px 16px;
-      color: $secondaryColor;
+      color: $color-snow;
       font-size: 16px;
       border-radius: 4px;
-      border: 2px solid $thirdColor;
+      border: 2px solid $color-silver;
       min-width: 350px;
     }
 
@@ -604,7 +493,7 @@ body {
 
     &-subtitle {
       max-width: 545px;
-      color: $thirdColor;
+      color: $color-silver;
       font-size: 14px;
       font-weight: 300;
     }
@@ -628,85 +517,20 @@ header {
     font-weight: 700;
 
     a {
-      color: $primaryColor;
+      color: $color-citrus;
     }
   }
 
+  .button {
+    display: none;
+  }
+
   .account {
-    position: relative;
     grid-area: account;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    color: $gray;
-
-    &-project {
-      position: relative;
-      display: flex;
-      align-items: center;
-      margin-left: 5px;
-      padding-right: 20px;
-      outline: none;
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-      color: $thirdColor;
-      transition: color 0.3s ease-in-out;
-
-      &:hover {
-        color: $secondaryColor;
-      }
-
-      .gg-chevron-down {
-        position: absolute;
-        right: 0;
-        top: -2px;
-        transition: top 0.3s ease-in-out;
-
-        --ggs: 0.5;
-      }
-
-      &:hover .gg-chevron-down {
-        top: 2px;
-      }
-    }
-
-    &-bloc {
-      display: none;
-      align-items: flex-start;
-      flex-direction: column;
-      position: absolute;
-      top: 40px;
-      padding: 8px 0;
-      background-color: $ctaGray;
-      border-radius: 4px;
-
-      &-input {
-        display: flex;
-        justify-content: flex-start;
-        width: 100%;
-        cursor: pointer;
-        padding: 8px 18px;
-        background-color: transparent;
-        border: none;
-        outline: none;
-        color: $thirdColor;
-
-        &:hover {
-          background-color: $ctaGrayHover;
-          color: $secondaryColor;
-        }
-
-        &-red {
-          color: $red;
-
-          &:hover {
-            color: $red;
-          }
-        }
-      }
-    }
   }
 
   .nav {
@@ -721,7 +545,7 @@ header {
       top: 75px;
       display: none;
       flex-direction: column;
-      background-color: $ctaGray;
+      background-color: $color-coal;
       padding-top: 8px;
       padding-bottom: 8px;
       border-radius: 4px;
@@ -730,7 +554,7 @@ header {
       &-option {
         padding: 8px 18px;
         font-size: 12px;
-        color: $red;
+        color: $color-warning;
         overflow: hidden;
 
         &::after {
@@ -741,7 +565,7 @@ header {
           width: calc(100% - 79px);
           margin-right: -100%;
           margin-left: 10px;
-          border-top: 1px solid $red;
+          border-top: 1px solid $color-warning;
         }
       }
 
@@ -752,16 +576,16 @@ header {
         width: 100%;
         border: 0;
         outline: 0;
-        color: $thirdColor;
+        color: $color-silver;
         background-color: inherit;
         padding: 8px 18px;
 
         &-red {
-          color: $red;
+          color: $color-warning;
         }
 
         &:hover {
-          background-color: $ctaGrayHover;
+          background-color: $color-gray;
         }
       }
     }
@@ -769,33 +593,34 @@ header {
 }
 
 aside {
-  background-color: $ctaGray;
+  background-color: $color-coal;
   width: max-content;
-  min-width: 300px;
-  height: calc(100vh - 102px);
-  position: relative;
+  min-width: 250px;
+  height: calc(100vh - 100px);
 
   .bloc {
     display: flex;
     flex-direction: column;
 
+    &-bottom {
+      display: none;
+    }
+
+    &-top {
+      height: calc(100vh - 355px);
+    }
+
     &-header {
       padding: 30px 24px;
       display: grid;
-      grid-template-columns: 4fr 1fr;
+      grid-template-columns: 1fr 4fr;
       grid-template-areas: "text icon";
-      border-bottom: 1px solid $ctaGrayHover;
+      border-bottom: 1px solid $color-gray;
 
       &-title {
         grid-area: text;
-        display: flex;
-        align-items: center;
         font-size: 14px;
         font-weight: 500;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        max-width: 214px;
       }
 
       &-add {
@@ -807,12 +632,16 @@ aside {
         border: 0;
         outline: 0;
         background-color: inherit;
-        color: $thirdColor;
+        color: $color-silver;
         transition: all 0.3s ease-in-out;
 
         &:hover {
-          color: $primaryColor;
+          color: $color-citrus;
         }
+      }
+
+      &-back {
+        display: none;
       }
     }
 
@@ -820,80 +649,116 @@ aside {
       display: flex;
       flex-direction: column;
       margin-top: 22px;
-      color: $thirdColor;
+      color: $color-silver;
+
+      &-danger:hover {
+        background-color: $color-coal !important;
+        cursor: inherit;
+      }
 
       &-list {
         position: relative;
         padding: 10px 24px;
-        color: $secondaryColor;
-        font-size: 14px;
+        display: grid;
+        grid-template-columns: 9fr 1fr;
+        grid-template-areas: "text more";
+        cursor: pointer;
 
-        &-options {
-          padding: 10px 18px;
-          color: $thirdColor;
+        &:hover {
+          background-color: $color-gray;
+        }
 
-          &:last-child {
-            margin-bottom: 18px;
+        &-text {
+          grid-area: text;
+          font-size: 14px;
+          font-weight: 500;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: 214px;
+        }
+
+        &:hover > .bloc-menu-list-text {
+          color: $color-snow;
+        }
+
+        &-more {
+          display: flex;
+          align-items: center;
+          justify-self: flex-end;
+          cursor: pointer;
+          grid-area: more;
+          border: 0;
+          outline: 0;
+          background-color: inherit;
+          color: $color-snow;
+          width: 24px;
+          padding: 4px;
+
+          .gg-more-alt {
+            margin-left: 50%;
+            transform: translateX(-50%);
+            color: $color-silver;
+            transition: all 0.3s ease-in-out;
           }
 
-          &-input {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
+          &:hover > .gg-more-alt {
+            color: $color-citrus;
+          }
 
-            &-value {
-              position: absolute;
-              right: calc(0px + 54px);
-              background-color: transparent;
-              color: $gray;
-              border: none;
-              outline: none;
-              padding: 5px 4px;
-              transition: color 0.3s ease-in-out;
+          &-bloc {
+            z-index: 1;
+            position: absolute;
+            display: none;
+            transform: translateY(-2%);
+            right: -145px;
+            flex-direction: column;
+            justify-content: flex-start;
+            background-color: $color-coal;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 4px;
+            font-size: 14px;
+
+            &-input {
+              display: flex;
+              width: 100%;
+              justify-content: flex-start;
+              align-items: center;
+              cursor: pointer;
+              border: 0;
+              outline: 0;
+              color: $color-silver;
+              background-color: inherit;
+              padding: 8px 18px;
+
+              &-red {
+                color: $color-warning;
+              }
 
               &:hover {
-                color: $thirdColor;
+                background-color: $color-gray;
               }
-            }
-
-            &-color {
-              position: absolute;
-              right: calc(0px + 24px);
-              border-radius: 3px;
-              height: 24px;
-              width: 24px;
-              background-color: #faff00;
-            }
-
-            &-checkbox {
-              &::after {
-                position: absolute;
-                right: calc(0px + 24px);
-              }
-            }
-
-            &-button {
-              position: absolute;
-              right: calc(0px + 24px);
-            }
-
-            &:not(:last-child) {
-              margin-bottom: 20px;
             }
           }
         }
-      }
-    }
 
-    &-footer {
-      padding: 30px 24px;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+        &-option {
+          font-size: 12px;
+          color: $color-warning;
+          overflow: hidden;
 
-      &-cta {
-        width: calc(300px - 48px);
+          &::after {
+            content: "";
+            display: inline-block;
+            height: 0.5em;
+            vertical-align: bottom;
+            width: calc(100% - 79px);
+            margin-right: -100%;
+            margin-left: 10px;
+            border-top: 1px solid $color-warning;
+          }
+        }
       }
     }
   }
@@ -902,12 +767,107 @@ aside {
 main {
   padding: 30px 60px;
   overflow-y: auto;
-  height: calc(100vh - 102px);
+  height: calc(100vh - 100px);
 
   .title {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 28px;
+  }
+
+  .bloc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+
+    &-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      outline: none;
+      background-color: inherit;
+      cursor: pointer;
+      border: 3px solid $color-coal;
+      border-radius: 4px;
+      padding: 2rem 6rem;
+      height: 280px;
+      width: 280px;
+      color: $color-coal;
+      margin-right: 24px;
+      margin-bottom: 24px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        border-color: $color-silver;
+        color: $color-silver;
+        transform: scale(1.1);
+      }
+
+      &-more {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        transition: background-color 0.3s ease-in-out;
+        height: 24px;
+        width: 32px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          background-color: $backgroundGray;
+        }
+      }
+
+      &-preview {
+        font-size: 8rem;
+        line-height: 150px;
+      }
+
+      &-title {
+        color: $color-silver;
+      }
+
+      &-bloc {
+        z-index: 1;
+        position: absolute;
+        display: none;
+        top: 35px;
+        right: 8px;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: $color-coal;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-radius: 4px;
+
+        &-input {
+          display: flex;
+          width: 100%;
+          justify-content: flex-start;
+          align-items: center;
+          cursor: pointer;
+          border: 0;
+          outline: 0;
+          color: $color-silver;
+          background-color: inherit;
+          padding: 8px 18px;
+          font-size: 12px;
+
+          &-red {
+            color: $color-warning;
+          }
+
+          &:hover {
+            background-color: $color-gray;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -922,8 +882,8 @@ main {
 
   &-yellow {
     padding: 12px 44px;
-    background-color: $primaryColor;
-    color: $backgroundColor;
+    background-color: $color-citrus;
+    color: $color-black;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -933,36 +893,88 @@ main {
 
   &-red {
     padding: 12px 44px;
-    background-color: $red;
-    color: $thirdColor;
+    background-color: $color-warning;
+    color: $color-silver;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      color: $secondaryColor;
+      color: $color-snow;
       transform: translateY(-15%);
     }
   }
 
   &-gray {
     padding: 8px 18px;
-    background-color: $ctaGray;
-    color: $thirdColor;
+    background-color: $color-coal;
+    color: $color-silver;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      color: $secondaryColor;
-      background-color: $ctaGrayHover;
+      color: $color-snow;
+      background-color: $color-gray;
     }
   }
 
   &-blank {
     padding: 12px 44px;
-    color: $thirdColor;
+    color: $color-silver;
     transition: all 0.3s ease-in-out;
 
     &:hover {
       transform: translateY(-15%);
       background-color: #121212;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .apear {
+    left: 0%;
+  }
+
+  header {
+    .button {
+      cursor: pointer;
+      transform: translateX(-100%);
+      background-color: transparent;
+      border: none;
+      outline: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-citrus;
+      height: 40px;
+      width: 40px;
+    }
+
+    a {
+      display: none;
+    }
+
+    .nav {
+      display: none;
+    }
+  }
+
+  main {
+    padding: 24px 16px;
+  }
+
+  aside {
+    position: absolute;
+    left: -100%;
+    width: 60%;
+    z-index: 4;
+    transition: left 0.3s ease-in-out;
+
+    .bloc {
+      &-header {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      &-bottom {
+        display: flex;
+      }
     }
   }
 }
